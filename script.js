@@ -8,6 +8,8 @@ const monthYear = document.getElementById('month-year');
             let currentDate = new Date(); // Tanggal saat ini
             let selectedDateObj = new Date(currentDate); // Default ke hari ini
 
+            
+
             // Fungsi untuk memformat data tugas
             function formatData(data) {
                 const formatted = {};
@@ -119,6 +121,7 @@ const monthYear = document.getElementById('month-year');
                     });
                 });
             }
+            
 
             // Fungsi untuk merender kalender
             function renderCalendar(date) {
@@ -171,7 +174,10 @@ const monthYear = document.getElementById('month-year');
 
                     calendarDates.appendChild(button);
                 }
+
             }
+
+            
 
             // Navigasi bulan sebelumnya
             prevButton.addEventListener('click', () => {

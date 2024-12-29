@@ -1,3 +1,14 @@
+<?php
+session_start();
+// Cek apakah user sudah login
+if (!isset($_SESSION['login'])) {
+    header("Location: home.php"); // Jika belum login, arahkan ke halaman welcome
+    exit(); // Pastikan script berhenti setelah redirect
+    require 'koneksi.php'; // Pastikan file koneksi Anda benar
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,15 +83,18 @@
                 <!-- Daftar Tugas -->
                 <div class="w-1/2">
                     <h3 class="text-lg font-bold mb-4" id="selected-date">Hari ini</h3>
+                    <!-- Form untuk menambahkan tugas -->
+                    <div class="mb-4">
+                        <button onclick="window.location.href='tambah.php'" id="add-task" class="mt-2 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 w-full">Tambah Tugas</button>
+                    </div>
                     <ul id="task-list" class="space-y-2">
-                        <!-- Tugas akan dimasukkan di sini -->
+
                     </ul>
                 </div>
             </div>
         </section>
 
         <script src="script.js"></script>
-
     </main>
 </body>
 

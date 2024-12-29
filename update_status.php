@@ -17,7 +17,7 @@ $status = isset($_GET['status']) ? intval($_GET['status']) : 0;
 if ($taskId > 0 && ($status === 0 || $status === 1)) {
     // Menyiapkan query untuk update status tugas
     $sql = "UPDATE tugas SET status = ? WHERE id_tugas = ? AND id_akun = ?";
-    
+
     if ($stmt = $koneksi->prepare($sql)) {
         // Bind parameter untuk query
         $stmt->bind_param("iii", $status, $taskId, $id_akun);
@@ -43,4 +43,3 @@ if ($taskId > 0 && ($status === 0 || $status === 1)) {
 }
 
 $koneksi->close();
-?>
